@@ -1,0 +1,72 @@
+% useful: https://tex.stackexchange.com/questions/489732/how-to-draw-curly-braces-on-minted-and-tcolorbox
+
+\documentclass[10pt, a4paper]{Studienarbeit}
+
+\usepackage[german]{babel}
+\usepackage{csquotes}
+\usepackage[acronym, 
+automake=immediate, toc, section=section]{glossaries}
+% automake=immediate to be able to print the glossary https://tex.stackexchange.com/questions/468818/glossaries-automake-not-working-lualatex
+\usepackage{minted}
+\usepackage{etoolbox}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{graphicx}
+\usepackage{hyperref}% use option [hidelinks] to hide red boxes around links in PDF
+%\BeforeBeginEnvironment{minted}{\begin{tcolorbox}}%
+%\AfterEndEnvironment{minted}{\end{tcolorbox}}%
+
+%--------------------------------------------------------------------------------------------------
+% DEFINITIONS
+%--------------------------------------------------------------------------------------------------
+\graphicspath{{figures/}}
+\title{Titel}
+\author{Autorname}
+\date{\todayshort}
+\newcommand{\projectname}{Projektname}
+\renewcommand{\doctitle}{\projectname}
+
+
+% set the emergencystrech to 3 em in case a long word or a mintinline Element can be linebroken and a Badbox Message occurs. em stands for the fontsize so for example if the fontsize is 12 pt (12 pt = approx. 4.233mm) 3em would be 12.7mm
+% more info: https://github.com/gpoore/minted/issues/31
+\setlength{\emergencystretch}{3em}
+
+%\glossarystyle{altlist} % list, altlist, listgroup, listhypergroup
+\makeglossaries
+
+\addbibresource{Literatur.bib}
+
+\include{Glossar}
+
+
+%--------------------------------------------------------------------------------------------------
+% BEGIN DOCUMENT
+%--------------------------------------------------------------------------------------------------
+\begin{document}
+
+\maketitlepage
+
+% To skip a page if it happens to be a even number
+\emptycleardoublepage
+\include{Eigenstaendigkeitserklaerung}
+
+% table of contents
+\emptycleardoublepage
+\tableofcontents
+
+\clearpage
+\printglossary[type=\acronymtype]
+
+\newpage
+\printglossary[type=main]
+
+\include{Hauptteil}
+
+\listoffigures
+
+\newpage
+
+\printbibliography[heading=bibintoc,title={Literaturverzeichnis}]
+
+\end{document}

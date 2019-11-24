@@ -1,0 +1,42 @@
+% very useful: https://tex.stackexchange.com/questions/8946/how-to-combine-acronym-and-glossary
+% put "\hfill \\" at the beginnig of a description to start the definition at a new line
+
+\makeglossaries
+\renewcommand{\glossaryentrynumbers}[1]{(#1)}
+
+% Example for (acronym), (acronym and glossary) and glossary
+%--------------------------------------------------------------------------------------------------
+% Computer-aided design (CAD)
+%--------------------------------------------------------------------------------------------------
+\newglossaryentry{cad}{
+	type=\acronymtype,
+	name={CAD},
+	description={\textbf{C}omputer-\textbf{a}ided \textbf{d}esign},
+	first={Computer-aided design (CAD)}
+}
+
+
+%--------------------------------------------------------------------------------------------------
+% Human Machine Interface (HMI)
+%--------------------------------------------------------------------------------------------------
+\newglossaryentry{glos:hmi}{
+	name={HMI},
+	description={Ein HMI, \textbf{H}uman-\textbf{M}achine \textbf{I}nterface (dt. Mensch-Maschine Schnittstelle), ist eine Schnittstelle zwischen dem Benutzer und einer Maschine und ermöglicht die Kommunikation mit dem Gerät. Es kann sich dabei um Hard- oder Software handeln. Im Rahmen dieses Berichts bezieht sich die {\dq}Zimmer-HMI{\dq} auf eine Software, mit der Daten von Greifern gelesen werden sowie Greifer gesteuert werden können}
+}
+
+\newglossaryentry{hmi}{
+	type=\acronymtype,
+	name={HMI\glsadd{glos:hmi}},
+	description={\textbf{H}uman-\textbf{M}achine \textbf{I}nterface},
+	first={Human-Machine Interface (HMI)\glsadd{glos:hmi}},
+	see=[Glossar:]{glos:hmi}
+}
+
+
+%--------------------------------------------------------------------------------------------------
+% LuaLaTeX
+%--------------------------------------------------------------------------------------------------
+\newglossaryentry{glos:lualatex}{
+	name={Lua\LaTeX},
+	description={Lua{\LaTeX} basiert auf Lua{\TeX}...}
+}
