@@ -1,3 +1,9 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                                                  %
+%                                          DOCUMENTCLASS                                           %
+%                                                                                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{Studienarbeit}
 
@@ -106,17 +112,18 @@ Logo Rechts
 %--------------------------------------------------------------------------------------------------
 % left footer
 \fancyfoot[L]{
-\footnotesize Autor: \@author
+\footnotesize {\@title}, {\@author}
 }
 
 % center footer
 \fancyfoot[C]{
-\footnotesize Erstellt am: \@date
+{\thepage} von \pageref{LastPage}
 }
 
 % right footer
 \fancyfoot[R]{
-{\thepage} von \pageref{LastPage}}
+\footnotesize \@date
+}
 }
 \pagestyle{zpagestyle}%
 
