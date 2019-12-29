@@ -76,8 +76,7 @@ section=section]{glossaries} % automake=immediate to be able to print the glossa
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \center
 \vspace*{1cm}
-%\includegraphics[width=5cm]{Zimmer_Group.pdf}\\[2cm]
-LOGO
+\includegraphics[height=2cm]{title_logo.pdf}\\[2cm]
 \HRule \\[0.4cm]
 \textsc{\Huge
 \@title
@@ -105,8 +104,7 @@ LOGO
 
 % left header
 \fancyhead[L]{
-%\includegraphics[width=3cm]{DHBW-Logo.pdf}% header
-Logo Links
+\includegraphics[height=1cm]{left_logo.pdf}
 }
 
 % center header
@@ -117,8 +115,7 @@ Logo Links
 
 % right header
 \fancyhead[R]{
-%\includegraphics[width=3cm]{Zimmer_Group.pdf}%
-Logo Rechts
+\includegraphics[height=1cm]{right_logo.pdf}
 }
 %--------------------------------------------------------------------------------------------------
 % left footer
