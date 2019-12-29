@@ -168,3 +168,14 @@ section=section]{glossaries} % automake=immediate to be able to print the glossa
 
 %\setlength{\parskip}{1em}
 %\setlength{\parindent}{0cm}
+
+% set the emergencystrech to 3 em in case a long word or a mintinline element can be linebroken and a Badbox Message occurs. em stands for the fontsize so for example if the fontsize is 12 pt (12 pt = approx. 4.233mm) 3em would be 12.7mm
+% more information: https://github.com/gpoore/minted/issues/31
+\setlength{\emergencystretch}{3em}
+
+%\glossarystyle{altlist} % list, altlist, listgroup, listhypergroup
+\makeglossaries
+
+\addbibresource{Literatur.bib}
+
+\include{Glossar}
