@@ -27,6 +27,7 @@ biber %
 lualatex -interaction=nonstopmode --shell-escape %.tex
 ```
 `-interaction=nonstopmode` LaTeX läuft ohne Interaktion vom Benutzer durch, auch wenn es Fehler gibt (außer bei schwerwiegenden).
+
 `--shell-escape`  erlaubt das Aufrufen von externen Programmen (wird für biblatex benötigt).
 
 ## Dateien
