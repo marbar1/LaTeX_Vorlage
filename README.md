@@ -17,7 +17,7 @@ Zum Zitieren wird biblatex verwendet, welches als Backend biber verwendet. Viele
 
 ## Verwendung
 Die PDF wird mit LuaLaTeX erzeugt und zur Quellenverwaltung wird Biber/ biblatex verwendet. LuaLaTeX selbst benötigt mehrere Durchläufe bis alle Referenzen aktualisiert sind. Biber wird danach ausgeführt und generiert die notwendigen Dateien für die Zitate und Quellen. Danach muss noch einmal LuaLaTeX ausgeführt werden.
-Als TeX Distribution wird MikTeX empfohlen, bislang nur diese getestet wurde.
+Als TeX Distribution wird MikTeX empfohlen, da bislang nur diese getestet wurde.
 
 MikTeX ersetzt beim Ausführen `%` mit dem Dateinamen.
 ```
@@ -45,7 +45,7 @@ Es is jeweils ein Beispiel vorhanden, diese können gelöscht werden.
 
 
 ### Hauptteil.tex
-In der Datei [Hauptteil.tex][Hauptteil] wird der Inhalt der Arbeit geschrieben. Falls es eine große Arbeit ist, kann der Text auch auf mehrere Dateien aufgeteilt werden und mit `\include{Dateiname}` in inkludiert werden.
+In der Datei [Hauptteil.tex][Hauptteil] wird der Inhalt der Arbeit geschrieben. Falls es eine große Arbeit ist, kann der Text auch auf mehrere Dateien aufgeteilt werden und mit `\include{Dateiname}` inkludiert werden.
 
 
 ### Literatur.bib
