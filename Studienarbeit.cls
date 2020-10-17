@@ -14,8 +14,8 @@
 %--------------------------------------------------------------------------------------------------
 \RequirePackage[includeheadfoot=True,
 %showframe,
-twoside,
-bindingoffset=1cm,
+%twoside,
+bindingoffset=0.5cm,
 head=1.5cm,
 foot=1cm,
 top=1.5cm,
@@ -23,117 +23,11 @@ bottom=1.5cm,
 left=2.5cm,
 right=2.5cm
 ]{geometry}
-
 \RequirePackage{setspace} % Provides support for setting the spacing between lines
 \RequirePackage{parskip} % For parskip and parindent
-\RequirePackage[section]{placeins} % Defines the FloatBarrier command
-\RequirePackage{makecell} % Line break in tabular environment
-\RequirePackage{nameref} % Reference the name of a label, not the number
-\RequirePackage[newfloat]{minted} % For code snippets
-\RequirePackage{etoolbox} % e-TeX Toolbox for Class and Package Authors
+\RequirePackage[newfloat]{minted} % For code snippets and code highlighting with pygments
 \RequirePackage{tcolorbox} % Box around code snippets
-\RequirePackage{caption} % Caption for images and tables
-\RequirePackage{fancyhdr} % Custom header and footer
-\RequirePackage{lastpage} % Reference the number of pages is your document
-\RequirePackage{tabularx} % tabularx environment
-\RequirePackage{listliketab} % list-like tabulars
-\RequirePackage{enumitem} % customizable list environment
-\RequirePackage[export]{adjustbox} % adjust and resize boxes
-\RequirePackage[nottoc]{tocbibind} % Disables the inclusion of the ToC
-\RequirePackage[german]{babel} % Manages culturally-dertermined typographical rules
-\RequirePackage{csquotes} % Advanced facilities for inline and display quotation
-\RequirePackage[acronym, % acronyms and glossary
-automake=immediate,
-toc,
-section=section]{glossaries} % automake=immediate to be able to print the glossary https://tex.stackexchange.com/questions/468818/glossaries-automake-not-working-lualatex
-\RequirePackage{minted} % code highlighting with pygments
-\RequirePackage{tikz} % graphics stuff
-\usetikzlibrary{positioning} % positioning of tikz objects
-\RequirePackage{graphicx} % Include images in the document
-\RequirePackage{hyperref}% use option [hidelinks] to hide red boxes around links in PDF
-\RequirePackage[
-  backend=biber,
-  bibencoding=utf8
-]{biblatex} % bibliography
-
-
-%--------------------------------------------------------------------------------------------------
-% DEFINITIONS
-%--------------------------------------------------------------------------------------------------
-\newcommand{\projectname}{projectname not defined}
-
-% short format for \today command
-\newcommand{\leadingzero}[1]{\ifnum #1<10 0\the#1\else\the#1\fi} 
-\newcommand{\todayshort}{\leadingzero{\day}.\leadingzero{\month}.\the\year} 
-\newcommand*{\quelle}[1]{\par\raggedleft\footnotesize Quelle:~#1}
-
-
-%--------------------------------------------------------------------------------------------------
-% TITLEPAGE
-%--------------------------------------------------------------------------------------------------
-\newcommand{\maketitlepage}{
-\begin{titlepage}
-\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-\center
-\vspace*{1cm}
-\includegraphics[height=2cm]{title_logo.pdf}\\[2cm]
-\HRule \\[0.4cm]
-\textsc{\Huge
-\@title
-}\\[1mm]
-\HRule \\[1.5cm]
-\LARGE \projectname \\[1.5cm]
-\Large \@author \\[0.5cm]
-\Large \@date
-\end{titlepage}
-}
-
-
-%--------------------------------------------------------------------------------------------------
-% PAGE STYLE
-%--------------------------------------------------------------------------------------------------
-\renewcommand{\floatpagefraction}{.8}
-
-\fancypagestyle{zpagestyle}{ 
-\renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% delete old header and footer
-\fancyhead{}
-\fancyfoot{}
-
-% left header
-\fancyhead[L]{
-\includegraphics[height=1cm]{left_logo.pdf}
-}
-
-% center header
-\fancyhead[C]{
-\center
-\vspace*{2mm}
-}
-
-% right header
-\fancyhead[R]{
-\includegraphics[height=1cm]{right_logo.pdf}
-}
-%--------------------------------------------------------------------------------------------------
-% left footer
-\fancyfoot[L]{
-\footnotesize {\@title}, {\@author}
-}
-
-% center footer
-\fancyfoot[C]{
-{\thepage} von \pageref{LastPage}
-}
-
-% right footer
-\fancyfoot[R]{
-\footnotesize \@date
-}
-}
-\pagestyle{zpagestyle}%
+\RequirePackage{makecell} % Line break in tabular environment
 
 
 %--------------------------------------------------------------------------------------------------
@@ -154,6 +48,8 @@ section=section]{glossaries} % automake=immediate to be able to print the glossa
 
 %--------------------------------------------------------------------------------------------------
 % EMPTY CLEAR DOUBLE PAGE
+%
+% Don't forget to uncomment the 'twoside' option of the geometry package!
 %--------------------------------------------------------------------------------------------------
 \def\emptycleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
 \thispagestyle{empty}%
@@ -163,19 +59,24 @@ section=section]{glossaries} % automake=immediate to be able to print the glossa
 %--------------------------------------------------------------------------------------------------
 % MISC
 %--------------------------------------------------------------------------------------------------
+% Table cell height
 \renewcommand{\cellalign}{tl}
 \renewcommand{\baselinestretch}{1.5}
+\renewcommand{\arraystretch}{1.5}
 
-%\setlength{\parskip}{1em}
-%\setlength{\parindent}{0cm}
+% short format for \today command
+\newcommand{\leadingzero}[1]{\ifnum #1<10 0\the#1\else\the#1\fi}
+\newcommand{\todayshort}{\leadingzero{\day}.\leadingzero{\month}.\the\year} 
+\newcommand*{\quelle}[1]{\par\raggedleft\footnotesize Quelle:~#1}
+
+% Create tocless Section (Section with number but not in the TOC) (\tocless\subsection{abc...})
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+% Rename 'List of Listings' to 'Quellcodeverzeichnis'
+\renewcommand{\listingname}{Quellcode}
+\renewcommand{\listlistingname}{{\listingname}verzeichnis}
 
 % set the emergencystrech to 3 em in case a long word or a mintinline element can be linebroken and a Badbox Message occurs. em stands for the fontsize so for example if the fontsize is 12 pt (12 pt = approx. 4.233mm) 3em would be 12.7mm
 % more information: https://github.com/gpoore/minted/issues/31
 \setlength{\emergencystretch}{3em}
-
-%\glossarystyle{altlist} % list, altlist, listgroup, listhypergroup
-\makeglossaries
-
-\addbibresource{Literatur.bib}
-
-\include{Glossar}

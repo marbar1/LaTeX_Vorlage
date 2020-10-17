@@ -15,5 +15,10 @@
 *.run.xml
 *.bbl
 *.blg
+*.lol
+*.gz
+*.fdb_latexmk
+*.fls
+*.lot
 Master.pdf
 /_minted-Master
