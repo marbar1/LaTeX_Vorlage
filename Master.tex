@@ -27,7 +27,8 @@ section=section,
 nopostdot]{glossaries} % create glossary and acronyms
 \usepackage[
   backend=biber,
-  bibencoding=utf8
+  bibencoding=utf8,
+  sorting=none
 ]{biblatex} % bibliography
 
 
@@ -48,6 +49,7 @@ nopostdot]{glossaries} % create glossary and acronyms
 \newcommand{\supervisorcompany}{Betreuer der Firma}
 \newcommand{\supervisordhbw}{Gutachter der DHBW}
 \newcommand{\location}{Ort}
+\newcolumntype{R}{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}X}
 
 
 %--------------------------------------------------------------------------------------------------
@@ -165,7 +167,6 @@ nopostdot]{glossaries} % create glossary and acronyms
   \end{large}
   \end{center}
   
-  \begin{table}[!ht]
   \begin{large}
   \begin{tabular}{ l l }
       Bearbeitungszeitraum            & {\processingperiod} \\
@@ -175,7 +176,6 @@ nopostdot]{glossaries} % create glossary and acronyms
       Gutachter der Dualen Hochschule & {\supervisordhbw}
   \end{tabular}
   \end{large}
-  \end{table}
 \end{titlepage}
 
 % SPERRVERMERK
@@ -191,6 +191,16 @@ nopostdot]{glossaries} % create glossary and acronyms
 % INHALTSVERZEICHNIS
 \setcounter{tocdepth}{2}
 \tableofcontents
+\newpage
+
+% ABBILDUNGSVERZEICHNIS
+\listoffigures
+
+% TABELLENVERZEICHNIS
+\listoftables
+
+% QUELLCODEVERZEICHNIS
+\listoflistings
 
 % AKRONYME
 \clearpage
@@ -202,15 +212,6 @@ nopostdot]{glossaries} % create glossary and acronyms
 
 % HAUPTTEIL
 \include{Hauptteil}
-
-% ABBILDUNGSVERZEICHNIS
-\listoffigures
-
-% TABELLENVERZEICHNIS
-\listoftables
-
-% QUELLCODEVERZEICHNIS
-\listoflistings
 
 % LITERATURVERZEICHNIS
 \newpage

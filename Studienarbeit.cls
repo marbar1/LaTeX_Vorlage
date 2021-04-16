@@ -62,7 +62,7 @@ right=2.5cm
 % Table cell height
 \renewcommand{\cellalign}{tl}
 \renewcommand{\baselinestretch}{1.5}
-\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arraystretch}{1}
 
 % short format for \today command
 \newcommand{\leadingzero}[1]{\ifnum #1<10 0\the#1\else\the#1\fi}
