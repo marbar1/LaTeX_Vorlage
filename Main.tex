@@ -11,13 +11,14 @@
 % REQUIRED PACKAGES
 %--------------------------------------------------------------------------------------------------
 \usepackage{graphicx} % Include images in the document
+\usepackage{placeins} % FloatBarrier command
 \usepackage{appendix} % Appendices at the end of the document.
 \usepackage[export]{adjustbox} % adjust and resize boxes/ alignment options for includegraphics
 \usepackage{fancyhdr} % Custom header and footer
 \usepackage{lastpage} % Reference the number of pages is your document
 \usepackage[german]{babel} % Manages culturally-dertermined typographical rules
 \usepackage{csquotes} % Advanced facilities for inline and display quotation
-\usepackage[nottoc]{tocbibind} % Disables the inclusion of the ToC
+\usepackage{tocbibind} % Disables the inclusion of the ToC [nottoc]
 \usepackage[hidelinks]{hyperref}% use option [hidelinks] to hide red boxes around links in PDF
 \usepackage[
 acronym, % acronyms and glossary
@@ -118,15 +119,19 @@ nopostdot]{glossaries} % create glossary and acronyms
 
 % Make supercite use square brackets
 % From: https://tex.stackexchange.com/a/60923
-\DeclareCiteCommand{\supercite}[\mkbibsuperscript]
-  {\iffieldundef{prenote}
-     {}
-     {\BibliographyWarning{Ignoring prenote argument}}%
-   \iffieldundef{postnote}
-     {}
-     {\BibliographyWarning{Ignoring postnote argument}}}
+\DeclareCiteCommand{\supercite}[\mkbibsuperscript]{%
+    \iffieldundef{prenote}
+    {}
+    {\BibliographyWarning{Ignoring prenote argument}}%
+    \iffieldundef{postnote}
+    {}
+    {}
+  }
   {\usebibmacro{citeindex}%
-   \bibopenbracket\usebibmacro{cite}\bibclosebracket}
+   \bibopenbracket%
+   \usebibmacro{cite}%
+   \usebibmacro{postnote}%
+   \bibclosebracket}
   {\supercitedelim}
   {}
 
@@ -165,7 +170,6 @@ nopostdot]{glossaries} % create glossary and acronyms
   \author \\[1cm]
   \todayshort \\[1cm]
   \end{large}
-  \end{center}
   
   \begin{large}
   \begin{tabular}{ l l }
@@ -176,6 +180,7 @@ nopostdot]{glossaries} % create glossary and acronyms
       Gutachter der Dualen Hochschule & {\supervisordhbw}
   \end{tabular}
   \end{large}
+  \end{center}
 \end{titlepage}
 
 % SPERRVERMERK

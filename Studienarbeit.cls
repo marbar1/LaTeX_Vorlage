@@ -27,6 +27,7 @@ right=2.5cm
 \RequirePackage{parskip} % For parskip and parindent
 \RequirePackage[newfloat]{minted} % For code snippets and code highlighting with pygments
 \RequirePackage{tcolorbox} % Box around code snippets
+\RequirePackage[font=small, labelfont=bf, justification=raggedright]{caption} % Caption for images and tables
 \RequirePackage{makecell} % Line break in tabular environment
 
 

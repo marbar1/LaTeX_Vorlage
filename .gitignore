@@ -20,5 +20,5 @@
 *.fdb_latexmk
 *.fls
 *.lot
-Master.pdf
-/_minted-Master
+Main.pdf
+/_minted-Main
