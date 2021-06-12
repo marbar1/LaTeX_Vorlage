@@ -53,10 +53,10 @@ In der Datei [Hauptteil.tex][Hauptteil] wird der Inhalt der Arbeit geschrieben. 
 In der Datei [Literatur.bib][Literatur] wird die Literatur hinterlegt. Dies wird für Biber benötigt.
 
 
-### Master.tex
-Die Datei [Master.tex][Master] ist das Masterdokument der Arbeit. Hier werden Variablen definiert, die Dokumentenklasse "Studienarbeit" geladen und der Aufbau des Dokuments definiert.
+### Main.tex
+Die Datei [Main.tex][Main] ist das Hauptdokument der Arbeit. Hier werden Variablen definiert, die Dokumentenklasse "Studienarbeit" geladen und der Aufbau des Dokuments definiert.
 
-Master.tex muss kompiliert werden, also an LuaLaTeX übergeben werden. Die anderen Datein sind in Master.tex inkludiert.
+Main.tex muss kompiliert werden, also an LuaLaTeX übergeben werden. Die anderen Datein sind in Main.tex inkludiert.
 
 
 ### Studienarbeit.cls
@@ -68,11 +68,13 @@ In der Datei [Studienarbeit.cls][Studienarbeit] werden das Seitenlayout und eini
 [Biber_download]: https://sourceforge.net/projects/biblatex-biber/
 [Strawberry_Perl]: http://strawberryperl.com/
 [Latexmk]: https://ftp.agdsn.de/pub/mirrors/latex/dante/support/latexmk/latexmk.pdf
+[Anhaenge]: https://github.com/Marius202/LaTeX_Vorlage/blob/master/Anhaenge.tex
+[Abstract]: https://github.com/Marius202/LaTeX_Vorlage/blob/master/Abstract.tex
 [Eigenstaendigkeitserklaerung]: https://github.com/Marius202/LaTeX_Vorlage/blob/master/Eigenstaendigkeitserklaerung.tex
 [Glossar]: https://github.com/Marius202/LaTeX_Vorlage/blob/master/Glossar.tex
 [Hauptteil]: https://github.com/Marius202/LaTeX_Vorlage/blob/master/Hauptteil.tex
 [Literatur]: https://github.com/Marius202/LaTeX_Vorlage/blob/master/Literatur.bib
-[Master]: https://github.com/Marius202/LaTeX_Vorlage/blob/master/Master.tex
+[Main]: https://github.com/Marius202/LaTeX_Vorlage/blob/master/Main.tex
 [Studienarbeit]: https://github.com/Marius202/LaTeX_Vorlage/blob/master/Studienarbeit.cls
 [acronym_glossary]: https://tex.stackexchange.com/questions/8946/how-to-combine-acronym-and-glossary
 [1]: https://www.dhbw.de/fileadmin/user_upload/Dokumente/Dokumente_fuer_Studierende/191212_Leitlinien_Praxismodule_Studien_Bachelorarbeiten.pdf (Richtlinien für Studienarbeiten)
